@@ -146,7 +146,8 @@ class ViewController: UIViewController {
 
             alertController.rx.show(in: self, buttons: [.default("Take a picture"), .default("Select from gallery"), .cancel("Cancel")])
                 .subscribe(onSuccess: { button in
-                    print("Selected option #\(button)")
+                    print("Selected option #\(button.0)")
+                    print("Selected button #\(button.1)")
                 })
                 .disposed(by: bag)
         }

@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 RxAlertController allows you to display messages on the screen, using the sequence of RxSwift observable streams instead of traditional closures.
                        DESC
 
-  s.homepage         = 'https://github.com/evgeny-sureev/RxAlertController'
+  s.homepage         = 'https://github.com/ksc91u/RxAlertController'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'Apache License 2.0', :file => 'LICENSE' }
-  s.author           = { 'Evgeny Sureev' => 'u@litka.ru' }
-  s.source           = { :git => 'https://github.com/evgeny-sureev/RxAlertController.git', :tag => s.version.to_s }
+  s.author           = { 'ksc91u' => 'shyhjie@csie.io' }
+  s.source           = { :git => 'https://github.com/ksc91u/RxAlertController.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
