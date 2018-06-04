@@ -171,8 +171,8 @@ extension Reactive where Base: UIAlertController {
     /// - parameter preferredStyle: Alert's style
     /// - returns: `Observable<Int>`, which emits index of selected button in `buttons` array
     
-    public static func show(in vc: UIViewController, title: String?, message: String?, buttons: [UIAlertController.AlertButton], preferredStyle: UIAlertControllerStyle = .alert) -> Single<Int> {
-        return show(in: vc, title: title, message: message, buttons: buttons, textFields: [], preferredStyle: preferredStyle).map { $0.0 }
+    public static func show(in vc: UIViewController, title: String?, message: String?, buttons: [UIAlertController.AlertButton], preferredStyle: UIAlertControllerStyle = .alert) -> Single<(Int, UIAlertController.AlertButton)> {
+        return show(in: vc, title: title, message: message, buttons: buttons, textFields: [], preferredStyle: preferredStyle).map { ($0.0, $0.1) }
     }
     
     /// Creates and displays UIAlertController with many buttons to the user.
@@ -186,7 +186,7 @@ extension Reactive where Base: UIAlertController {
     /// - parameter preferredStyle: Alert's style
     /// - returns: `Observable<Int>`, which emits index of selected button in `buttonTitles` array
     
-    public static func show(in vc: UIViewController, title: String?, message: String?, buttonTitles: [String], preferredStyle: UIAlertControllerStyle = .alert) -> Single<Int> {
+    public static func show(in vc: UIViewController, title: String?, message: String?, buttonTitles: [String], preferredStyle: UIAlertControllerStyle = .alert) -> Single<(Int, UIAlertController.AlertButton)> {
         let buttons = buttonTitles.enumerated().map { (index, title) -> UIAlertController.AlertButton in
             if index == 0 {
                 return .cancel(title)
@@ -194,7 +194,7 @@ extension Reactive where Base: UIAlertController {
                 return .default(title)
             }
         }
-        return show(in: vc, title: title, message: message, buttons: buttons, textFields: [], preferredStyle: preferredStyle).map { $0.0 }
+        return show(in: vc, title: title, message: message, buttons: buttons, textFields: [], preferredStyle: preferredStyle).map { ($0.0, $0.1) }
     }
     
     /// Creates and displays simple UIAlertController to the user.
